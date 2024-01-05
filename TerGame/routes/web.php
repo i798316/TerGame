@@ -19,25 +19,11 @@ Route::get('/', function () {
 });
 */
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-Route::get('/', [Games::class, 'list']);
-
-Route::get('/upload', function () {
-    return view('upload');
-});
-=======
-Route::get('/games', '\App\Http\Controllers\GameController@games');
-
-Route::get('/games/{id}', '\App\Http\Controllers\GameController@game');
->>>>>>> 9408acc4603b7079935b577d3715a32089d1e3db
-=======
 Route::get('/', [GameController::class, 'listOnOffer']);
 
 Route::get('/games', [GameController::class, 'listAll']);
 Route::get('/lastgames', [GameController::class, 'listLast']);
 Route::get('/gamesSearch', [GameController::class, 'gameSearch']);
->>>>>>> cambiosAlex
 
 Route::middleware([
     'auth:sanctum',
@@ -47,9 +33,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-<<<<<<< HEAD
-=======
     Route::get('/upload', [FormController::class, 'showUploadForm']);
     Route::post('/uploadGame', [GameController::class, 'uploadGame']);
->>>>>>> cambiosAlex
 });
