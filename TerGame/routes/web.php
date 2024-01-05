@@ -20,6 +20,9 @@ Route::get('/', function () {
 
 Route::get('/', [Games::class, 'list']);
 
+Route::get('/upload', function () {
+    return view('upload');
+});
 
 Route::middleware([
     'auth:sanctum',
@@ -29,8 +32,4 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    
-    Route::get('/upload', function () {
-        return view('upload');
-    });
 });

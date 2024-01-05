@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Game extends Model
 {
-    
+    protected $table = 'games';
+    protected $fillable = ['name, developer, category, description'];
+
+    public function developer()
+    {
+        return $this->belongTo(User::class, 'id');
+    }
+
+    public $timestamps = false;
 }
