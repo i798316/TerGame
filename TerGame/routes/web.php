@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Games;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,14 +12,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
 
-Route::get('/upload', function () {
-    return view('upload');
-});
+Route::get('/', [Games::class, 'list']);
+
 
 Route::middleware([
     'auth:sanctum',
@@ -29,4 +29,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    
+    Route::get('/upload', function () {
+        return view('upload');
+    });
 });
