@@ -17,7 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/searchGame', '\App\Http\Controllers\GameController@searchGame');
+Route::get('/games', '\App\Http\Controllers\GameController@games');
+
+Route::get('/games/{id}', '\App\Http\Controllers\GameController@game');
 
 Route::middleware([
     'auth:sanctum',
