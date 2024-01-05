@@ -15,10 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();;
             $table->string('category');
-            $table->unsignedBigInteger('developer');
             $table->text('description');
+            $table->double('price');
+            $table->double('discount');
 
+            $table->unsignedBigInteger('developer');
             $table->foreign('developer')->references('id')->on('users');
+            
+            $table->timestamps();
         });
     }
 

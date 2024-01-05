@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Games;
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\FormController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,11 +19,11 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/', [Games::class, 'list']);
+Route::get('/', [GameController::class, 'listOnOffer']);
 
-Route::get('/games', '\App\Http\Controllers\GameController@games');
-
-Route::get('/games/{id}', '\App\Http\Controllers\GameController@game');
+Route::get('/games', [GameController::class, 'listAll']);
+Route::get('/lastgames', [GameController::class, 'listLast']);
+Route::get('/gamesSearch', [GameController::class, 'gameSearch']);
 
 Route::middleware([
     'auth:sanctum',
@@ -32,6 +33,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::get('/upload', '\App\Http\Controllers\FormController@showUploadForm');
-    Route::post('/uploadGame', '\App\Http\Controllers\GameController@uploadGame');
+    Route::get('/upload', [FormController::class, 'showUploadForm']);
+    Route::post('/uploadGame', [GameController::class, 'uploadGame']);
 });
