@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -27,25 +28,41 @@ class TestSeeder extends Seeder
             'category' => 'Accion',
             'description' => 'Its Spider Man',
             'price' => 50,
-            'owner_id' => '1',
+            'discount' => 0,
+            'developer' => '1',
+            'created_at' => Carbon::now(),
         ],[
             'name' => 'Baldurs Gate',
             'category' => 'RPG',
             'description' => 'Full RPG',
             'price' => 60,
-            'owner_id' => '1',
+            'discount' => 10,
+            'developer' => '1',
+            'created_at' => Carbon::now(),
         ],[
             'name' => 'God of War',
             'category' => 'Action',
             'description' => 'Its Daddy Kratos',
             'price' => 40,
-            'owner_id' => '1',
+            'discount' => 0,
+            'developer' => '1',
+            'created_at' => Carbon::now(),
         ],[
             'name' => 'Chrash Bandicoot',
             'category' => 'Platform',
             'description' => 'Its a Crazy',
             'price' => 20,
-            'owner_id' => '1',
+            'discount' => 20,
+            'developer' => '1',
+            'created_at' => Carbon::now(),
+        ],[
+            'name' => 'Chrash Bandicoot2',
+            'category' => 'Platform',
+            'description' => 'Its a Crazy',
+            'price' => 20,
+            'discount' => 0,
+            'developer' => '1',
+            'created_at' => Carbon::now(),
         ]]);
     }
 }
