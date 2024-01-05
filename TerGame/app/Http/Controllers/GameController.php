@@ -22,12 +22,12 @@ class GameController extends Controller
         return redirect('/dashboard')->with('success', 'Upload correct');
     }
 
-    public function searchGame(Request $request)
+    public function games(Request $request)
     {
         $query = $request->input('name');
 
         $games = Game::where('name', 'LIKE', "%$query%")->get();
 
-        return view('showGames', ['games' => $games]);
+        return view('games', ['games' => $games]);
     }
 }

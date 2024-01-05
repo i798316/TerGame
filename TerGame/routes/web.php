@@ -18,11 +18,17 @@ Route::get('/', function () {
 });
 */
 
+<<<<<<< HEAD
 Route::get('/', [Games::class, 'list']);
 
 Route::get('/upload', function () {
     return view('upload');
 });
+=======
+Route::get('/games', '\App\Http\Controllers\GameController@games');
+
+Route::get('/games/{id}', '\App\Http\Controllers\GameController@game');
+>>>>>>> 9408acc4603b7079935b577d3715a32089d1e3db
 
 Route::middleware([
     'auth:sanctum',
