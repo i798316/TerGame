@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('content')
-        <form action="/my-handling-form-page" method="post">
+        <form action="/uploadGame" method="post">
             <ul>
                 <li>
                     <label for="name">Videogame's name:</label>
@@ -18,7 +18,6 @@
                 <li class="button">
                     <button type="submit">Upload</button>
                 </li>
-
             </ul>
         </form>
 @endsection

@@ -9,10 +9,4 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
-
-    protected function create(Request $request) {
-        return Game::create([
-            'name' => $request->name,
-        ]);
-    }
 }

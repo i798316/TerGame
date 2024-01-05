@@ -17,9 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/upload', function () {
-    return view('upload');
-});
+Route::get('/searchGame', '\App\Http\Controllers\GameController@searchGame');
 
 Route::middleware([
     'auth:sanctum',
@@ -29,4 +27,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/upload', '\App\Http\Controllers\FormController@showUploadForm');
+    Route::post('/uploadGame', '\App\Http\Controllers\GameController@uploadGame');
 });
