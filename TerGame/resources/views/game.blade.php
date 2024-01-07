@@ -1,10 +1,18 @@
 @extends('layouts.template')
 
 @section('content')
-    @foreach ($games as $game)
-        <p>{{ $game->name }}</p>
-        <p>{{ $game->category }}</p>
-        <p>{{ $game->description }}</p>
-        <!-- Muestra otros detalles del producto según tus necesidades -->
+    <h1>{{ $game->name }}</h1>
+    <p>Comentarios</p>
+        
+    @foreach($comments as $comment)
+        <div>
+            <p>Comment: {{ $comment->comment }}</p>
+            <p>Por: {{ $comment->rate }}</p>
+        </div>
+        <hr>
     @endforeach
+
+    <a href="{{ route('comment', $game) }}">Add a comment</a>
+
+
 @endsection

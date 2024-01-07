@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
+use Illuminate\Support\Facades\Route;
 
 class VerifyCsrfToken extends Middleware
 {
@@ -12,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        '/uploadGame'
+        '/uploadGame',
+        '/games/*/comment/addComment'
     ];
 }

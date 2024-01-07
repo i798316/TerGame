@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Game;
+use App\Models\Comment;
 use Carbon\Carbon;
 
 class GameController extends Controller
 {
-    public function uploadGame(Request $request)
-    {
+    public function uploadGame(Request $request){
         $userId = Auth::id();
 
         $game = new Game([]);
@@ -26,8 +26,7 @@ class GameController extends Controller
         return redirect('/dashboard')->with('success', 'Upload correct');
     }
 
-    public function gameSearch(Request $request)
-    {
+    public function gameSearch(Request $request){
         $query = $request->input('name');
         $games = Game::where('name', 'LIKE', "%$query%")->get();
 
@@ -47,5 +46,12 @@ class GameController extends Controller
     public function listAll(){
         $games = Game::all();
         return view('games', ['games'=>$games]);
+    }
+
+    public function showGame($id){
+        $game = Game::findOrFail($id);
+        $comments = Comment::where('game', 'LIKE', "%$id");
+        return view('game', ['game' => $game, 
+                             'comments' => $comments]);
     }
 }

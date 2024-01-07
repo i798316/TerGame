@@ -11,15 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('games', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('category');
-            $table->string('description');
-            $table->double('price');
-            $table->foreignId('owner_id')->constrained(
-                table: 'users', indexName: 'id'
-            );
+            $table->string('text');
+            $table->integer('rate');
+
+            $table->unsignedBigInteger('game');
+            $table->foreign('game')->references('id')->on('games');
+            $table->unsignedBigInteger('user');
+            $table->foreign('user')->references('id')->on('users');
+            
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('games');
+        Schema::dropIfExists('comments');
     }
 };

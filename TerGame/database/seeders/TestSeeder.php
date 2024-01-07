@@ -48,7 +48,7 @@ class TestSeeder extends Seeder
             'developer' => '1',
             'created_at' => Carbon::now(),
         ],[
-            'name' => 'Chrash Bandicoot',
+            'name' => 'Crash Bandicoot',
             'category' => 'Platform',
             'description' => 'Its a Crazy',
             'price' => 20,
@@ -56,7 +56,7 @@ class TestSeeder extends Seeder
             'developer' => '1',
             'created_at' => Carbon::now(),
         ],[
-            'name' => 'Chrash Bandicoot2',
+            'name' => 'Crash Bandicoot2',
             'category' => 'Platform',
             'description' => 'Its a Crazy',
             'price' => 20,
