@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('rate');
 
             $table->unsignedBigInteger('game');
-            $table->foreign('game')->references('id')->on('games');
+            $table->foreign('game')->references('id')->on('games')->onDelete('cascade');
             $table->unsignedBigInteger('user');
             $table->foreign('user')->references('id')->on('users');
             

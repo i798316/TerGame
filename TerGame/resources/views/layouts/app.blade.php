@@ -13,6 +13,10 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        @vite('resources/css/styles.css')
+        @vite('resources/css/carousel.css')
+        @vite('resources/js/scripts.js')
 
         <!-- Styles -->
         @livewireStyles
@@ -37,9 +41,10 @@
                 {{ $slot }}
             </main>
         </div>
-
         @stack('modals')
-
+        
         @livewireScripts
+        
+        @include('partials.footer')
     </body>
 </html>

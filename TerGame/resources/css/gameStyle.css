@@ -1,0 +1,11 @@
+img {
+    max-width: inherit;
+    min-width: -webkit-fill-available;
+    max-height: inherit;
+    object-fit: contain;
+
+}
+.image-container {
+    max-height: 30rem;
+
+}

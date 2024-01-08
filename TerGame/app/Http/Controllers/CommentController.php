@@ -21,6 +21,6 @@ class CommentController extends Controller
         $comment->created_at = Carbon::now();
         $comment->save();
 
-        return redirect('/dashboard')->with('success', 'Upload correct');
+        return redirect()->back()->with('success', 'Correct comment');
     }
 }

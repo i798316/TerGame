@@ -2,39 +2,36 @@
 @extends('layouts.template')
 
 @section('content')
-@include('partials.search')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @vite('resources/css/carousel.css')
+    @vite('resources/js/scripts.js')
+    @include('partials.search')
     <!-- Contenido de la Página de Inicio -->
     <!-- Section-->
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-                <div>
-                    <h2>Juegos en Oferta</h2>
-                </div>
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
-                    @foreach ($games as $game)
-                        <div class="col mb-5">
-                            <div class="card h-100">
-                                <!-- Product image-->
-                                <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                                <!-- Product details-->
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                        <!-- Product name-->
-                                        <h5 class="fw-bolder">{{$game->name}}</h5>
-                                        <!-- Product price-->
-                                        <span class="text-muted text-decoration-line-through">${{$game->price}}.00</span>
-                                        ${{$game->price * (1 - $game->discount/100)}}.00
-                                    </div>
-                                </div>
-                                <!-- Product actions-->
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ route('game', $game) }}">View options</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+    <section class="py-5">
+        @include('partials.popUp')
+        <div class="container px-4 px-lg-5 mt-5">
+            <div>
+                <h2>Juegos en Oferta</h2>
             </div>
-        </section>
+            <div class="justify-content-center">
+                <div id="carouselExampleControls" class="carousel slide">
+                    <div class="carousel-inner">
+                        @include('partials.gamesCarousel')
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
 @endsection

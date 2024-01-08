@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\CommentController;
+use Livewire\Livewire;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +20,11 @@ use App\Http\Controllers\CommentController;
 Route::get('/', function () {
     return view('welcome');
 });
+Livewire::setUpdateRoute(function ($handle) {
+    return Route::post('/TerGame/TerGame/public/livewire/update', $handle);
+});
 */
 
-Route::get('/', [GameController::class, 'listOnOffer']);
-
-Route::get('/games', [GameController::class, 'listAll']);
-Route::get('/lastgames', [GameController::class, 'listLast']);
-Route::get('/gamesSearch', [GameController::class, 'gameSearch']);
-Route::get('/games/{id}', [GameController::class, 'showGame'])->name('game');
 
 Route::middleware([
     'auth:sanctum',
@@ -37,7 +35,18 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::get('/upload', [FormController::class, 'showUploadForm']);
+    Route::get('/check', [GameController::class, 'showOwnGames']);
     Route::post('/uploadGame', [GameController::class, 'uploadGame']);
+    Route::get('/deleteGame/{game}', [GameController::class, 'deleteGame']);
     Route::get('/games/{game}/comment', [FormController::class, 'showCommentForm'])->name('comment');
     Route::post('/games/{game}/comment/addComment', [CommentController::class, 'addComment'])->name('addComment');
 });
+
+Route::get('/', [GameController::class, 'listOnOffer']);
+
+Route::get('/games', [GameController::class, 'listAll']);
+Route::get('/lastgames', [GameController::class, 'listLast']);
+Route::get('/gamesSearch', [GameController::class, 'gameSearch']);
+Route::get('/games/{id}', [GameController::class, 'showGame'])->name('game');
+
+
