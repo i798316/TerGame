@@ -11,7 +11,7 @@ export default defineConfig({
                 'resources/css/rating.css',
                 'resources/css/gameStyle.css',
                 'resources/js/app.js',
-                'resources/js/script.js',
+                'resources/js/scripts.js',
             ],
             refresh: [
                 ...refreshPaths,

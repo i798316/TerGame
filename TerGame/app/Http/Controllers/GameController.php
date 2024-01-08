@@ -82,7 +82,7 @@ class GameController extends Controller
     {
         $game = Game::findOrFail($id);
         $comments = Comment::where('game', 'LIKE', "%$id")
-            ->Join('users', 'users.id', '=', 'Comments.user')
+            ->Join('users', 'users.id', '=', 'comments.user')
             ->select('comments.*', 'users.name')
             ->orderBy('created_at', 'desc')
             ->get();

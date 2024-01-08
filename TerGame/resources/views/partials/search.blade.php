@@ -4,9 +4,9 @@
         <div class="text-center text-white">
             <h1 class="display-4 fw-bolder">TerGame</h1>
             <form action="/gamesSearch" method="get">
-                <label for="search" style="color: white;">Videojuego:</label>
-                <input type="text" id="search" name="name" placeholder="Introduzca nombre...">
-                <input type="submit" value="Buscar">
+                <label for="search" style="color: white;">Videogame:</label>
+                <input type="text" id="search" name="name" placeholder="Insert name...">
+                <input type="submit" value="Search">
             </form>
         </div>
     </div>

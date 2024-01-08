@@ -6,17 +6,17 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Videojuegos</a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Games</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="{{ url('/games') }}">Todos los videojuegos</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/games') }}">All games</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="{{ url('/lastgames') }}">Últimos videojuegos</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/lastgames') }}">Last games</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#!">Categorías</a></li>
-                <li class="nav-item"><a class="nav-link" href="#!">Acerca de</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">About us</a></li>
             </ul>
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
