@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Game;
 use App\Models\Code;
 use Carbon\Carbon;
@@ -13,12 +14,24 @@ class CodeController extends Controller
     public function showPurchased()
     {
         $userId = Auth::id();
-        $codes = Code::where('user', 'LIKE', "%$userId")
+        /*$codes = Code::where('user', 'LIKE', "%$userId")
             ->Join('games', 'games.id', '=', 'codes.game')
             ->select('codes.*', 'games.name')
             ->orderBy('created_at', 'desc')
+            ->get();*/
+        /*    
+        $codes = DB::table('codes', 'games')
+            ->select('codes.*', 'games.id' , 'games.name', 'games.image')
+            ->orderBy('created_at', 'desc')
             ->get();
-        
+*/
+        $codes = DB::table('codes')
+            ->Join('games', 'games.id', '=', 'codes.game')
+            ->select('codes.*', 'games.name', 'games.image')
+            ->where('codes.user', '=', $userId)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         return view('purchasedGames', [
             'codes' => $codes,
             'actualUser' => $userId
