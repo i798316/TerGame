@@ -5,11 +5,11 @@
         <div class="card">
             <!-- Product image-->
             <div class="img-wrapper">
-                <img class="d-block mw-100" src="{{ $code->game->image }}" alt="Ha ocurrido un error con la imagen" />
+                <img class="d-block mw-100" src="{{ $code->game }}" alt="Ha ocurrido un error con la imagen" />
             </div>
             <div class="card-body">
                 <!-- Product name-->
-                <h5 class="card-title text-center">{{ $code->game->name }}</h5>
+                <h5 class="card-title text-center">{{ $code->game }}</h5>
                 <!-- Product code-->
                 <p class="card-text text-center">
                     {{ $code->code }}
@@ -25,4 +25,4 @@
             </div>
         </div>
     </div>
-@endforeacc
+@endforeach

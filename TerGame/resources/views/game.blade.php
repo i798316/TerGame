@@ -23,9 +23,11 @@
                         ${{ sprintf('%.2f', $game->price) }}
                     @endif
                     <br>
-                    <form action="{{ route('buy', $game) }}" method="post">
-                        <button>BUY</button>
-                    </form>
+                    @if ($game->developer != $actualUser)
+                        <form action="{{ route('buy', $game) }}" method="post">
+                            <button>BUY</button>
+                        </form>
+                    @endif
                 </div>
 
             </div>

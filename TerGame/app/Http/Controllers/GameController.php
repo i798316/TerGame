@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Game;
 use App\Models\Comment;
 use Carbon\Carbon;
-
-use function Laravel\Prompts\select;
+use Illuminate\Support\Facades\DB;
 
 class GameController extends Controller
 {
@@ -80,6 +79,8 @@ class GameController extends Controller
 
     public function showGame($id)
     {
+        $userId = Auth::id();
+
         $game = Game::findOrFail($id);
         $comments = Comment::where('game', 'LIKE', "%$id")
             ->Join('users', 'users.id', '=', 'comments.user')
@@ -90,7 +91,8 @@ class GameController extends Controller
 
         return view('game', [
             'game' => $game,
-            'comments' => $comments
+            'comments' => $comments,
+            'actualUser' => $userId
         ]);
     }
 
@@ -104,4 +106,28 @@ class GameController extends Controller
         ]);
     }
 
+    public function categories()
+    {
+        $games = DB::table('games')
+            ->select('category', DB::raw('count(*) as gamesInCategory'))
+            ->groupBy('category')
+            ->get();
+
+        return view('categories', [
+            'games' => $games
+        ]);
+    }
+
+    public function gamesInCategory($category)
+    {
+        $userId = Auth::id();
+
+        $games = Game::where('category', 'LIKE', "%$category%")->get();
+
+        return view('gamesInCategory', [
+            'games' => $games,
+            'category' => $category,
+            'actualUser' => $userId
+        ]);
+    }
 }

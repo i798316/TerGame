@@ -25,7 +25,7 @@ class TestSeeder extends Seeder
         ]);
         DB::table('games')->insert([[
             'name' => 'Spider Man 2',
-            'category' => 'Accion',
+            'category' => 'Action',
             'description' => 'Its Spider Man',
             'price' => 50,
             'discount' => 0,

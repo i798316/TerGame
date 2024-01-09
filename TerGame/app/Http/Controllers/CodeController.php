@@ -45,6 +45,6 @@ class CodeController extends Controller
         $code->created_at = Carbon::now();
         $code->save();
 
-        return redirect()->back()->with('success', 'Correct comment');
+        return redirect('/dashboard')->with('success', 'Correct comment');
     }
 }

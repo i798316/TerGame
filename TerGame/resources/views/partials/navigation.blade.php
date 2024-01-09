@@ -15,7 +15,7 @@
                         <li><a class="dropdown-item" href="{{ url('/lastgames') }}">Last games</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#!">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="/categories">Categories</a></li>
                 <li class="nav-item"><a class="nav-link" href="#!">About us</a></li>
             </ul>
             @if (Route::has('login'))

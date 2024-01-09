@@ -51,5 +51,5 @@ Route::get('/games', [GameController::class, 'listAll']);
 Route::get('/lastgames', [GameController::class, 'listLast']);
 Route::get('/gamesSearch', [GameController::class, 'gameSearch']);
 Route::get('/games/{id}', [GameController::class, 'showGame'])->name('game');
-
-
+Route::get('/categories', [GameController::class, 'categories']);
+Route::get('/categories/{category}', [GameController::class, 'gamesInCategory'])->name('gamesInCategory');
