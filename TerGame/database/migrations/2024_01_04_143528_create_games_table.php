@@ -20,7 +20,7 @@ return new class extends Migration
             $table->double('discount');
             $table->string('image')->default('https://dummyimage.com/450x300/dee2e6/6c757d.jpg');
             $table->unsignedBigInteger('developer');
-            $table->foreign('developer')->references('id')->on('users');
+            $table->foreign('developer')->references('id')->on('users')->onDelete('cascade');
             
             $table->timestamps();
         });

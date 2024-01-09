@@ -53,3 +53,6 @@ Route::get('/gamesSearch', [GameController::class, 'gameSearch']);
 Route::get('/games/{id}', [GameController::class, 'showGame'])->name('game');
 Route::get('/categories', [GameController::class, 'categories']);
 Route::get('/categories/{category}', [GameController::class, 'gamesInCategory'])->name('gamesInCategory');
+Route::get('/aboutUs', function(){
+    return view('aboutUs');
+});

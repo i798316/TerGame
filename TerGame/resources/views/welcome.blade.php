@@ -12,7 +12,7 @@
         @include('partials.popUp')
         <div class="container px-4 px-lg-5 mt-5">
             <div>
-                <h2>Games on sales</h2>
+                <h1>Games on sales</h1>
             </div>
             <div class="justify-content-center">
                 <div id="carouselExampleControls" class="carousel slide">

@@ -7,6 +7,7 @@
 
         <title>{{ 'TerGame' }}</title>
 
+        <link rel="icon" type="image/x-icon" href="images\Ter_Logo.png" />
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -15,7 +16,6 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         @vite('resources/css/styles.css')
-        @vite('resources/css/carousel.css')
         @vite('resources/js/scripts.js')
 
         <!-- Styles -->

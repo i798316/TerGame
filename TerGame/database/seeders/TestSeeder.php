@@ -18,11 +18,16 @@ class TestSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('users')->insert([
-            'name' => 'TestUser',
-            'email' => 'a@a.com',
+        DB::table('users')->insert([[
+            'name' => 'DevUser',
+            'email' => 'developer@tergame.com',
             'password' => Hash::make('123456789'),
-        ]);
+        ],[
+            'name' => 'Juan',
+            'email' => 'juan@gmail.com',
+            'password' => Hash::make('123456789'),
+        ]]);
+
         DB::table('games')->insert([[
             'name' => 'Spider Man 2',
             'category' => 'Action',

@@ -9,7 +9,7 @@
             @include('partials.popUp')
             <div class="container px-4 px-lg-5 mt-5">
                 <div>
-                    <h2>Todos los Juegos</h2>
+                    <h1>Todos los Juegos</h1>
                 </div>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     @include('partials.games')
