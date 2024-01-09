@@ -14,6 +14,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         '/uploadGame',
-        '/games/*/comment/addComment'
+        '/games/*/comment/addComment',
+        '/games/*/buy'
     ];
 }

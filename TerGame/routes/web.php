@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CodeController;
 use Livewire\Livewire;
 
 /*
@@ -36,6 +37,8 @@ Route::middleware([
     })->name('dashboard');
     Route::get('/upload', [FormController::class, 'showUploadForm']);
     Route::get('/check', [GameController::class, 'showOwnGames']);
+    Route::get('/checkPurchased', [CodeController::class, 'showPurchased']);
+    Route::post('/games/{game}/buy', [CodeController::class, 'buy'])->name('buy');
     Route::post('/uploadGame', [GameController::class, 'uploadGame']);
     Route::get('/deleteGame/{game}', [GameController::class, 'deleteGame']);
     Route::get('/games/{game}/comment', [FormController::class, 'showCommentForm'])->name('comment');
